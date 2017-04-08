@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+// use Auth;
+// use App\Models\Manager as User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -68,4 +70,14 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * Reset guard for mangager
+     * 
+     * @return Guard
+     */
+    // protected function guard()
+    // {
+    //     return Auth::guard('manager');
+    // }
 }
