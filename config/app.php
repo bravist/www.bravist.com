@@ -181,7 +181,8 @@ return [
          * Third-party Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
-        Zizaco\Entrust\EntrustServiceProvider::class
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        Rinvex\Repository\Providers\RepositoryServiceProvider::class,
     ],
 
     /*

@@ -4,16 +4,21 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Auth\StoreRegisterRequest;
+use App\Repositories\Contracts\ManagerRepository;
 
 class RegisterController extends Controller
 {
+    public $repository;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ManagerRepository $repository)
     {
+        $this->repository = $repository;
         // $this->middleware('guest:manager');
     }
 
@@ -43,9 +48,17 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRegisterRequest $request)
     {
-        //
+        return $this->repository->create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
     }
 
     /**
