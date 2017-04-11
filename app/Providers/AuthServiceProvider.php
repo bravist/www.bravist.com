@@ -37,8 +37,7 @@ class AuthServiceProvider extends ServiceProvider
 
         Auth::extend('manager', function ($app, $name, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\Guard...
-
-            return new ManagerGuard(Auth::createUserProvider($config['provider']));
+            return new ManagerGuard($name, Auth::createUserProvider($config['provider']), $app['session.store']);
         });
     }
 }

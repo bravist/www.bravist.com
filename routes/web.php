@@ -22,8 +22,11 @@ Route::get('/home', 'HomeController@index');
 Route::group([
 				'prefix' => 'admin', 
 				'namespace' => 'Admin', 
-				'middleware' => 'auth:manager'
+				'middleware' => 'web'
 			], function () {
 
-	Route::get('register', 'Auth\RegisterController@index')->name('admin.auth.register');
+	Route::get('register', 'Auth\RegisterController@index')->name('register.admin');
+	Route::post('register', 'Auth\RegisterController@store');
+	Route::get('login', 'Auth\LoginController@index')->name('login.admin');
+	Route::post('logout', 'Auth\LoginController@logout')->name('logout.admin');
 });
