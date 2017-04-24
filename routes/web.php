@@ -29,4 +29,5 @@ Route::group([
 	Route::post('register', 'Auth\RegisterController@store');
 	Route::get('login', 'Auth\LoginController@index')->name('login.admin');
 	Route::post('logout', 'Auth\LoginController@logout')->name('logout.admin');
+	Route::get('dashboard', 'DashboardController@index');
 });

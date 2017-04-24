@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Auth\StoreRegisterRequest;
 use App\Repositories\Contracts\ManagerRepositoryContract;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
     public $repository;
+
+    protected $redirectTo = '/admin/dashboard';
 
     /**
      * Create a new controller instance.
@@ -19,7 +22,6 @@ class RegisterController extends Controller
     public function __construct(ManagerRepositoryContract $repository)
     {
         $this->repository = $repository;
-        // $this->middleware('guest:manager');
     }
 
     /**
@@ -50,59 +52,50 @@ class RegisterController extends Controller
      */
     public function store(StoreRegisterRequest $request)
     {
-        return $this->repository->create([
+        $userEntity = $this->repository->create([
             'name' => $request->get('username'),
             'email' => $request->get('email'),
             'password' => bcrypt($request->get('password')),
         ]);
-        $this->guard()->login($user);
+        $this->guard()->login($userEntity);
 
-        return $this->registered($request, $user)
+        return $this->registered($request, $userEntity)
                         ?: redirect($this->redirectPath());
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Reset guard for mangager
+     * 
+     * @return Guard
      */
-    public function show($id)
+    protected function guard()
     {
-        //
+        return Auth::guard('manager');
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * The user has been registered.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  mixed  $user
+     * @return mixed
      */
-    public function update(Request $request, $id)
+    protected function registered(Request $request, $user)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Get the post register / login redirect path.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return string
      */
-    public function destroy($id)
+    public function redirectPath()
     {
-        //
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
     }
 }
