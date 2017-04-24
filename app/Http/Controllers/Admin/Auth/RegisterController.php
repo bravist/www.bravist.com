@@ -51,9 +51,9 @@ class RegisterController extends Controller
     public function store(StoreRegisterRequest $request)
     {
         return $this->repository->create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name' => $request->get('username'),
+            'email' => $request->get('email'),
+            'password' => bcrypt($request->get('password')),
         ]);
         $this->guard()->login($user);
 
