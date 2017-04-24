@@ -7,9 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Auth\StoreRegisterRequest;
 use App\Repositories\Contracts\ManagerRepositoryContract;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\RedirectsUsers;
 
 class RegisterController extends Controller
 {
+    use RedirectsUsers;
+
     public $repository;
 
     protected $redirectTo = '/admin/dashboard';
@@ -83,19 +86,5 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user)
     {
         //
-    }
-
-    /**
-     * Get the post register / login redirect path.
-     *
-     * @return string
-     */
-    public function redirectPath()
-    {
-        if (method_exists($this, 'redirectTo')) {
-            return $this->redirectTo();
-        }
-
-        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
     }
 }
