@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Auth\StoreRegisterRequest;
-use App\Repositories\Contracts\ManagerRepository;
+use App\Repositories\Contracts\ManagerRepositoryContract;
 
 class RegisterController extends Controller
 {
@@ -16,7 +16,7 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct(ManagerRepository $repository)
+    public function __construct(ManagerRepositoryContract $repository)
     {
         $this->repository = $repository;
         // $this->middleware('guest:manager');

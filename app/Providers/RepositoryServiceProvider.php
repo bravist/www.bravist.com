@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Contracts\ManagerRepositoryContract;
+use App\Repositories\Eloquents\ManagerEloquentRepository;
 
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -24,6 +26,6 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(App\Repositories\Contracts\ManagerRepository::class, App\Repositories\Eloquents\ManagerRepository::class);
+        $this->app->bind(ManagerRepositoryContract::class, ManagerEloquentRepository::class);
     }
 }

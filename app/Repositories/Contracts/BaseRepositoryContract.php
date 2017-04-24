@@ -1,8 +1,11 @@
 <?php 
 
+namespace App\Repositories\Contracts;
+
+use Rinvex\Repository\Contracts\CacheableContract;
 use Rinvex\Repository\Contracts\RepositoryContract;
 
-class BaseRepositoryContract extends RepositoryContract
+interface BaseRepositoryContract extends RepositoryContract, CacheableContract
 {
     
 }
