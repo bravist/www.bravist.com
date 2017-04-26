@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin.auth.app')
 
 @section('content')
 	<!-- /.login-logo -->
@@ -31,7 +31,7 @@
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                              <input type="checkbox"> Remember Me
+                              <input type="checkbox"> 记住我
                             </label>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin.auth.app')
 @section('content')
 	<div class="register-box-body">
             <p class="login-box-msg">注册一个管理员</p>
