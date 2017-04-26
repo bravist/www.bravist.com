@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Identicon\Identicon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //Create a new Identicon object
+        $this->app->singleton('Bravist\Identicon', function ($app) {
+            return new Identicon();
+        });
     }
 }
