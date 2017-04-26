@@ -9,7 +9,9 @@
         "laravel/framework": "5.4.*",
         "laravel/passport": "^2.0",
         "laravel/tinker": "~1.0",
-        "zizaco/entrust": "5.2.x-dev"
+        "zizaco/entrust": "5.2.x-dev",
+        "rinvex/repository": "dev-develop",
+        "yzalis/identicon": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

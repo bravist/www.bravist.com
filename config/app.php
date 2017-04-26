@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'The Common Dashboard Console'),
 
     /*
     |--------------------------------------------------------------------------
@@ -181,7 +181,10 @@ return [
          * Third-party Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
-        Zizaco\Entrust\EntrustServiceProvider::class
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        Rinvex\Repository\Providers\RepositoryServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class
     ],
 
     /*
