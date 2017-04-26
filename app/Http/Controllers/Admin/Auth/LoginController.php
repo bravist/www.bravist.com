@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RedirectsUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -166,7 +167,7 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function logout($request)
+    public function logout(Request $request)
     {
         $this->guard()->logout();
 

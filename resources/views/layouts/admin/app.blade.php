@@ -39,7 +39,7 @@
   <![endif]-->
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition sidebar-mini skin-red-light">
     <div class="wrapper">
 
         <header class="main-header">
@@ -74,13 +74,13 @@
             <!-- Main content -->
             @yield('content')
             <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-        @include('layouts.admin.footer')
+            <!-- /.content-wrapper -->
+            @include('layouts.admin.footer')
+            <!-- Control Sidebar -->
+            <!-- /.control-sidebar -->
+            @include('layouts.admin.controlsidebar')
 
-        <!-- Control Sidebar -->
-        @include('layouts.admin.controlsidebar')
-        <!-- /.control-sidebar -->
+        </div>
         <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>

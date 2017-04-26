@@ -223,8 +223,13 @@
                         <div class="pull-left">
                             <a href="" class="btn btn-default btn-flat">个人信息</a>
                         </div>
+                        
                         <div class="pull-right">
-                            <a href="{{ route('logout.admin') }}" class="btn btn-default btn-flat">登 出</a>
+                        <a href="{{ route('logout.admin') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-default btn-flat" > 登 出</a>
+                        <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+
                         </div>
                     </li>
                 </ul>
