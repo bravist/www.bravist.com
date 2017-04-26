@@ -26,7 +26,7 @@
         <ul class="sidebar-menu">
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-share"></i> 
+                    <i class="fa fa-edit"></i> 
                     <span>角色与权限</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
