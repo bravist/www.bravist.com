@@ -51,11 +51,11 @@
                 <span class="logo-lg"><b>Admin</b>LTE</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
-            @include('layouts.admin.nav')
+            @include('layouts.admin.nav', ['manager' => $manager])
 
         </header>
         <!-- Left side column. contains the logo and sidebar -->
-        @include('layouts.admin.sidebar')
+        @include('layouts.admin.sidebar', ['manager' => $manager])
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
