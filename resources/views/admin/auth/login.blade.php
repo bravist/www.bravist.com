@@ -28,16 +28,9 @@
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                              <input type="checkbox"> 记住我
-                            </label>
-                        </div>
-                    </div>
                     <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">登 录</button>
+                    <div class="col-xs-4 col-md-12 col-sm-8">
+                        <button type="submit" class="btn btn-primary btn-block">登 录</button>
                     </div>
                     <!-- /.col -->
                 </div>
