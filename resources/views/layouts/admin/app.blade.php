@@ -22,21 +22,13 @@
     <link rel="stylesheet" href="{{ asset('css/blue.css') }}">
     <!-- Morris chart -->
     <link rel="stylesheet" href="{{ asset('css/morris.css') }}">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="{{ asset('css/jquery-jvectormap-1.2.2.css') }}">
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="{{ asset('css/datepicker3.css') }}">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{ asset('css/daterangepicker.css') }}">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap3-wysihtml5.min.css') }}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body class="hold-transition sidebar-mini skin-red-light">
@@ -83,5 +75,13 @@
     </div>
     <!-- ./wrapper -->
 </body>
-
+<!-- jQuery 2.2.3 -->
+<script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/app.min.js') }}"></script>
+<script src="{{ asset('js/demo.js') }}"></script>
+<script type="text/javascript">
+    window.Laravel = {'csrfToken': '{{ csrf_token() }}'};
+</script>
+@yield('javascript')
 </html>

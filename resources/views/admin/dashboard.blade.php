@@ -37,14 +37,10 @@
 
 @endsection
 
-<!-- jQuery 2.2.3 -->
-<script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+@section('javascript')
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="{{ asset('js/morris.min.js') }}"></script>
-<script src="{{ asset('js/app.min.js') }}"></script>
-<script src="{{ asset('js/demo.js') }}"></script>
 <script type="text/javascript">
     $(function() {
         "use strict";
@@ -101,4 +97,4 @@
         });
     })
 </script>
-
+@endsection
