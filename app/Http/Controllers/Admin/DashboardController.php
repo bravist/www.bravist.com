@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Admin\BaseController;
+use App\Http\Controllers\Controller;
 
-class DashboardController extends BaseController
+class DashboardController extends Controller
 {
     public function __construct()
     {
@@ -19,8 +19,6 @@ class DashboardController extends BaseController
      */
     public function index()
     {
-    	$manager = $this->getManager();
-
-    	return view('admin.dashboard', compact('manager'));
+    	return view('admin.dashboard');
     }
 }

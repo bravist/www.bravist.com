@@ -62,9 +62,9 @@
                 <li>
                     <a href="javascript:void(0)">
                         <h4 class="control-sidebar-subheading">
-        Custom Template Design
-        <span class="label label-danger pull-right">70%</span>
-      </h4>
+                            Custom Template Design
+                            <span class="label label-danger pull-right">70%</span>
+                          </h4>
 
                         <div class="progress progress-xxs">
                             <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
@@ -74,9 +74,9 @@
                 <li>
                     <a href="javascript:void(0)">
                         <h4 class="control-sidebar-subheading">
-        Update Resume
-        <span class="label label-success pull-right">95%</span>
-      </h4>
+                            Update Resume
+                            <span class="label label-success pull-right">95%</span>
+                          </h4>
 
                         <div class="progress progress-xxs">
                             <div class="progress-bar progress-bar-success" style="width: 95%"></div>
@@ -86,9 +86,9 @@
                 <li>
                     <a href="javascript:void(0)">
                         <h4 class="control-sidebar-subheading">
-        Laravel Integration
-        <span class="label label-warning pull-right">50%</span>
-      </h4>
+                            Laravel Integration
+                            <span class="label label-warning pull-right">50%</span>
+                          </h4>
 
                         <div class="progress progress-xxs">
                             <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
@@ -98,9 +98,9 @@
                 <li>
                     <a href="javascript:void(0)">
                         <h4 class="control-sidebar-subheading">
-        Back End Framework
-        <span class="label label-primary pull-right">68%</span>
-      </h4>
+                            Back End Framework
+                            <span class="label label-primary pull-right">68%</span>
+                          </h4>
 
                         <div class="progress progress-xxs">
                             <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
@@ -122,9 +122,9 @@
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-      Report panel usage
-      <input type="checkbox" class="pull-right" checked>
-    </label>
+                      Report panel usage
+                      <input type="checkbox" class="pull-right" checked>
+                    </label>
 
                     <p>
                         Some information about this general settings option
@@ -134,9 +134,9 @@
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-      Allow mail redirect
-      <input type="checkbox" class="pull-right" checked>
-    </label>
+                      Allow mail redirect
+                      <input type="checkbox" class="pull-right" checked>
+                    </label>
 
                     <p>
                         Other sets of options are available
@@ -146,9 +146,9 @@
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-      Expose author name in posts
-      <input type="checkbox" class="pull-right" checked>
-    </label>
+                      Expose author name in posts
+                      <input type="checkbox" class="pull-right" checked>
+                    </label>
 
                     <p>
                         Allow the user to show his name in blog posts
@@ -160,25 +160,25 @@
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-      Show me as online
-      <input type="checkbox" class="pull-right" checked>
-    </label>
+                      Show me as online
+                      <input type="checkbox" class="pull-right" checked>
+                    </label>
                 </div>
                 <!-- /.form-group -->
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-      Turn off notifications
-      <input type="checkbox" class="pull-right">
-    </label>
+                      Turn off notifications
+                      <input type="checkbox" class="pull-right">
+                    </label>
                 </div>
                 <!-- /.form-group -->
 
                 <div class="form-group">
                     <label class="control-sidebar-subheading">
-      Delete chat history
-      <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-    </label>
+                      Delete chat history
+                      <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                    </label>
                 </div>
                 <!-- /.form-group -->
             </form>
