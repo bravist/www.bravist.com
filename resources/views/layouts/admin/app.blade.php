@@ -1232,7 +1232,7 @@
     <script src="{{ asset('js/jquery-jvectormap-1.2.2.min.js') }}"></script>
     <script src="{{ asset('js/jquery-jvectormap-world-mill-en.js') }}"></script>
     <!-- jQuery Knob Chart -->
-    <script src="{{ asset('js/plugins/knob/jquery.knob.js') }}"></script>
+    <script src="{{ asset('js/jquery.knob.js') }}"></script>
     <!-- daterangepicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
     <script src="{{ asset('js/daterangepicker.js') }}"></script>
