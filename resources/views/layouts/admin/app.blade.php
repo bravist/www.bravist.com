@@ -44,7 +44,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="index2.html" class="logo">
+            <a href="{{ route('dashboard') }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
                 <!-- logo for regular state and mobile devices -->
@@ -61,26 +61,22 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h1>
-                    Dashboard
-                    <small>Control panel</small>
-                  </h1>
-                <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Dashboard</li>
-                </ol>
+                @yield('content-header')
             </section>
 
-            <!-- Main content -->
-            @yield('content')
-            <!-- /.content -->
-            <!-- /.content-wrapper -->
-            @include('layouts.admin.footer')
-            <!-- Control Sidebar -->
-            <!-- /.control-sidebar -->
-            @include('layouts.admin.controlsidebar')
+            <section class="content">
+                <!-- Main content -->
+                @yield('content')
+            </section>
 
         </div>
+
+        <!-- /.content -->
+        <!-- /.content-wrapper -->
+        @include('layouts.admin.footer')
+        <!-- Control Sidebar -->
+        <!-- /.control-sidebar -->
+        @include('layouts.admin.controlsidebar')
         <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>

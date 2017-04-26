@@ -19,16 +19,27 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group([
-				'prefix' => 'admin', 
-				'namespace' => 'Admin', 
-				'middleware' => 'web'
-			], function () {
+Route::group(
+    [
+        'prefix' => 'admin', 
+        'namespace' => 'Admin', 
+        'middleware' => 'web'
+    ], 
+    function ($route) {
 
-	Route::get('register', 'Auth\RegisterController@index')->name('register.admin');
-	Route::post('register', 'Auth\RegisterController@store');
-	Route::get('login', 'Auth\LoginController@index')->name('login.admin');
-	Route::post('login', 'Auth\LoginController@login')->name('login.admin');
-	Route::post('logout', 'Auth\LoginController@logout')->name('logout.admin');
-	Route::get('dashboard', 'DashboardController@index');
+        $route->get('register', 'Auth\RegisterController@index')->name('register.admin');
+        $route->post('register', 'Auth\RegisterController@store');
+        $route->get('login', 'Auth\LoginController@index')->name('login.admin');
+        $route->post('login', 'Auth\LoginController@login')->name('login.admin');
+        $route->post('logout', 'Auth\LoginController@logout')->name('logout.admin');
+
+        Route::group(
+            [
+                'middleware' => 'auth.admin'
+            ],
+            function ($route) {
+                $route->get('dashboard', 'DashboardController@index')->name('dashboard');
+                $route->resource('roles', 'RoleController');
+            }
+        );
 });
