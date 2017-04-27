@@ -1,5 +1,6 @@
 @extends('layouts.admin.app')
 @section('content-header')
+<link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.css') }}">
 <h1>
     角色与权限
     <small>权限管理</small>
