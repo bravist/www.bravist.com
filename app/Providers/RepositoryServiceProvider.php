@@ -3,9 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\Contracts\ManagerRepositoryContract;
-use App\Repositories\Eloquents\ManagerEloquentRepository;
-
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -26,6 +23,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(ManagerRepositoryContract::class, ManagerEloquentRepository::class);
+        $this->app->bind(\App\Repositories\Contracts\ManagerRepositoryContract::class, \App\Repositories\Eloquents\ManagerEloquentRepository::class);
+        $this->app->bind(\App\Repositories\Contracts\RoleRepositoryContract::class, \App\Repositories\Eloquents\RoleEloquentRepository::class);
     }
 }

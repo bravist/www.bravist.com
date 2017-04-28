@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ff30bd0aeef9a8c51c54474f0387b74",
+    "content-hash": "942e77ab18d7c077b8be7756b1adceb4",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -457,17 +457,61 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
-            "name": "laravel/framework",
-            "version": "v5.4.19",
+            "name": "laracasts/flash",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "02444b7450350db17a7607c8a52f7268ebdb0dad"
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "1c7658652e10791d934a37bc0f6f0bd5ce5ac73f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/laravel/framework/02444b7450350db17a7607c8a52f7268ebdb0dad.zip",
-                "reference": "02444b7450350db17a7607c8a52f7268ebdb0dad",
+                "url": "https://files.phpcomposer.com/files/laracasts/flash/1c7658652e10791d934a37bc0f6f0bd5ce5ac73f.zip",
+                "reference": "1c7658652e10791d934a37bc0f6f0bd5ce5ac73f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2017-04-26T16:55:22+00:00"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v5.4.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "851aad458bcc904178ded02954d55d36c2c35f8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/laravel/framework/851aad458bcc904178ded02954d55d36c2c35f8b.zip",
+                "reference": "851aad458bcc904178ded02954d55d36c2c35f8b",
                 "shasum": ""
             },
             "require": {
@@ -583,7 +627,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-04-16T13:33:34+00:00"
+            "time": "2017-04-27T13:04:35+00:00"
         },
         {
             "name": "laravel/passport",
@@ -2934,7 +2978,7 @@
             "version": "0.9.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/padraic/mockery.git",
+                "url": "https://github.com/mockery/mockery.git",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856"
             },
             "dist": {
@@ -4257,8 +4301,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "zizaco/entrust": 20,
-        "rinvex/repository": 20
+        "rinvex/repository": 20,
+        "zizaco/entrust": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
