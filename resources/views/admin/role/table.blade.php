@@ -1,4 +1,5 @@
 <div class="col-sm-12">
+    @include('flash::message')
     <table id="example1" class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -30,7 +31,14 @@
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ route('roles.edit', $role->id) }}" >修改</a></li>
-                                    <li><a href="#">删除</a></li>
+
+                                    <li><a href="{{ route('roles.destroy', $role->id) }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">删除</a></li>
+                                    <form id="delete-form" action="{{ route('roles.destroy', $role->id) }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                        {!! method_field('delete') !!}
+                                    </form>
+
+                                    
                                 </ul>
                             </div>
                         </td>
@@ -49,3 +57,4 @@
         </tfoot>
     </table>    
 </div>
+@include('admin.modal.flash')

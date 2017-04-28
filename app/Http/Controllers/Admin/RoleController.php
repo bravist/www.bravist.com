@@ -30,6 +30,7 @@ class RoleController extends Controller
     {
         $roles = $this->repository
                     ->searchByKeyword($request->get('search', null))
+                    ->orderBy('id', 'DESC')
                     ->paginate(15, ['*'], 'page')
                     ->appends($request->all());
         return view('admin.role.index', compact('roles'));
@@ -117,6 +118,16 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role = $this->repository->find($id);
+
+        if (!$role) {
+            abort(404);
+        }
+
+        $this->repository->delete($role);
+
+        flash('删除权限成功')->success();
+
+        return redirect()->route('roles.index');
     }
 }
