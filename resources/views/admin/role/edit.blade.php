@@ -24,6 +24,7 @@
         <form class="form-horizontal" action="{{ route('roles.update', $role->id) }}" method="POST">
             {{ csrf_field() }}
             {!! method_field('patch') !!}
+            <input type="hidden" name="role" value="{{ $role->id }}">
             <div class="box-body">
                 @include('flash::message')
                 <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
