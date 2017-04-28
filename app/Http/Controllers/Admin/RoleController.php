@@ -4,17 +4,34 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\Contracts\RoleRepositoryContract;
 
 class RoleController extends Controller
 {
+    protected $repository;
+
+    /**
+     * Contruct
+     * 
+     * @param RoleRepositoryContract $repository
+     */
+    public function __construct(RoleRepositoryContract $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.role.index');
+        $roles = $this->repository
+                    ->searchByKeyword($request->get('search', null))
+                    ->paginate(15, ['*'], 'page')
+                    ->appends($request->all());
+        return view('admin.role.index', compact('roles'));
     }
 
     /**
