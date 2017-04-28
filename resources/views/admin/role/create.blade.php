@@ -17,21 +17,19 @@
 <div class="col-xs-12">
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">修改角色</h3>
+            <h3 class="box-title">添加角色</h3>
         </div>
         
         <!-- /.box-header -->
-        <form class="form-horizontal" action="{{ route('roles.update', $role->id) }}" method="POST">
+        <form class="form-horizontal" action="{{ route('roles.store') }}" method="POST">
             {{ csrf_field() }}
-            {!! method_field('patch') !!}
-            <input type="hidden" name="role" value="{{ $role->id }}">
             <div class="box-body">
                 @include('flash::message')
                 <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
                     <label for="name" class="col-sm-2 control-label">角色名</label>
 
                     <div class="col-sm-10">
-                        <input type="name" name="name" class="form-control" placeholder="角色名" id="name" value="{{ $role->name }}">
+                        <input type="name" name="name" class="form-control" placeholder="角色名" id="name" value="{{ old('name') }}">
                         @if ($errors->has('name'))
                         <span class="help-block">
                             <strong>{{ $errors->first('name') }}</strong>
@@ -43,7 +41,7 @@
                     <label for="display_name" class="col-sm-2 control-label">角色昵称</label>
 
                     <div class="col-sm-10">
-                        <input type="display_name" name="display_name" class="form-control" id="display_name" placeholder="角色昵称" value="{{ $role->display_name }}">
+                        <input type="display_name" name="display_name" class="form-control" id="display_name" placeholder="角色昵称" value="{{ old('display_name') }}">
                         @if ($errors->has('display_name'))
                         <span class="help-block">
                             <strong>{{ $errors->first('display_name') }}</strong>
@@ -56,7 +54,7 @@
                     <label for="description" class="col-sm-2 control-label">角色描述</label>
 
                     <div class="col-sm-10">
-                        <textarea class="form-control" name="description" class="description" rows="3" placeholder="角色描述...">{{ $role->description }}</textarea>
+                        <textarea class="form-control" name="description" class="description" rows="3" placeholder="角色描述...">{{ old('description') }}</textarea>
                         @if ($errors->has('description'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('description') }}</strong>

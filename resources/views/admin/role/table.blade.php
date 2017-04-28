@@ -4,9 +4,9 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>权限名称</th>
-                <th>显示名称</th>
-                <th>权限描述</th>
+                <th>角色名</th>
+                <th>角色昵称</th>
+                <th>角色描述</th>
                 <th>编辑</th>
             </tr>
         </thead>
@@ -49,9 +49,9 @@
         <tfoot>
             <tr>
                 <th>ID</th>
-                <th>权限名称</th>
-                <th>显示名称</th>
-                <th>权限描述</th>
+                <th>角色名</th>
+                <th>角色昵称</th>
+                <th>角色描述</th>
                 <th>编辑</th>
             </tr>
         </tfoot>

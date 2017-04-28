@@ -3,9 +3,8 @@
 namespace App\Http\Requests\Admin\Role;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:255', Rule::unique('roles')->where(function ($query) {
-                                                    $query->where('name', $this->get('name'))
-                                                    ->where('id', '!=',$this->get('role'));
-                                                })],
+            'name' => 'required|max:255|unique:roles',
             'display_name' => 'required|max:255',
-            'description' => 'required',
+            'description' => 'required|max:255',
         ];
     }
 

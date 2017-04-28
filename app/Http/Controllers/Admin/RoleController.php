@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\RoleRepositoryContract;
-use App\Http\Requests\Admin\Role\UpdateRequest;
+use App\Http\Requests\Admin\Role\{
+    StoreRequest,
+    UpdateRequest
+};
 
 class RoleController extends Controller
 {
@@ -31,7 +34,7 @@ class RoleController extends Controller
         $roles = $this->repository
                     ->searchByKeyword($request->get('search', null))
                     ->orderBy('id', 'DESC')
-                    ->paginate(15, ['*'], 'page')
+                    ->paginate(15)
                     ->appends($request->all());
         return view('admin.role.index', compact('roles'));
     }
@@ -43,7 +46,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.role.create');
     }
 
     /**
@@ -52,9 +55,19 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $this->repository->create(
+            [
+                'name' => $request->name,
+                'display_name' => $request->display_name,
+                'description' => $request->description,
+            ]
+        );
+
+        flash('添加新权限成功！')->success();
+
+        return back();
     }
 
     /**
