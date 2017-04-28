@@ -31,7 +31,7 @@
     <![endif]-->
 </head>
 
-<body class="hold-transition sidebar-mini skin-red-light">
+<body class="hold-transition sidebar-mini sidebar-collapse skin-red-light">
     
     <div class="wrapper">
 
