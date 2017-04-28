@@ -29,7 +29,7 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">修改</a></li>
+                                    <li><a href="{{ route('roles.edit', $role->id) }}" >修改</a></li>
                                     <li><a href="#">删除</a></li>
                                 </ul>
                             </div>

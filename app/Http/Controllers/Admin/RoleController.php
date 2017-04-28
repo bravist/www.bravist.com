@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\RoleRepositoryContract;
+use App\Http\Requests\Admin\Role\UpdateRequest;
 
 class RoleController extends Controller
 {
@@ -74,7 +75,9 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = $this->repository->find($id);
+
+        return view('admin.role.edit', compact('role'));
     }
 
     /**
@@ -84,9 +87,22 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        //
+        $role = $this->repository->find($id);
+
+        if (!$role) {
+            abort(404);
+        }
+
+        $this->repository->update(
+            $role,
+            [
+                'name' => $request->name,
+                'display_name' => $request->display_name,
+                'description' => $request->description,
+            ]
+        );
     }
 
     /**
