@@ -65,7 +65,8 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                <button type="submit" class="btn btn-primary pull-center">保 存</button>
+                <a href="{{ route('roles.index') }}" class="btn btn-default ">返 回 </a>
+                <button type="submit" class="btn btn-primary pull-right">保 存</button>
             </div>
             <!-- /.box-footer -->
         </form>
