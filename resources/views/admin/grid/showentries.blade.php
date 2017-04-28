@@ -16,7 +16,7 @@
     <div id="example1_filter" class="dataTables_filter">
         <form id="seach-form" action="" method="GET">
             <label>
-                搜索:
+                搜索 :
                     <input type="search" name="search" class="form-control input-sm" placeholder="关键词" value="{{ request('search') }}" aria-controls="example1">
                     {{ csrf_field() }}
                 
