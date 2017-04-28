@@ -103,6 +103,10 @@ class RoleController extends Controller
                 'description' => $request->description,
             ]
         );
+
+        flash('修改权限名称成功！')->success();
+
+        return redirect()->route('roles.edit', $role);
     }
 
     /**

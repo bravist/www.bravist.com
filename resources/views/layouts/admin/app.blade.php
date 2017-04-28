@@ -32,6 +32,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini skin-red-light">
+    
     <div class="wrapper">
 
         <header class="main-header">

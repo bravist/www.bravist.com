@@ -19,11 +19,13 @@
         <div class="box-header with-border">
             <h3 class="box-title">修改权限</h3>
         </div>
+        
         <!-- /.box-header -->
         <form class="form-horizontal" action="{{ route('roles.update', $role->id) }}" method="POST">
             {{ csrf_field() }}
             {!! method_field('patch') !!}
             <div class="box-body">
+                @include('flash::message')
                 <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
                     <label for="name" class="col-sm-2 control-label">权限名称</label>
 
@@ -75,3 +77,9 @@
 </div>
 
 @endsection
+@section('javascript')
+<script type="text/javascript">
+    $('#flash-overlay-modal').modal();
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
+@stop
