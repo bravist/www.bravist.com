@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\RoleRepositoryContract;
+use App\Repositories\Contracts\{
+    RoleRepositoryContract,
+    PermissionRepositoryContract
+};
 use App\Http\Requests\Admin\Role\{
     StoreRequest,
     UpdateRequest
@@ -44,9 +47,10 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(PermissionRepositoryContract $permissionRepo)
     {
-        return view('admin.role.create');
+        $permissions = $permissionRepo->findAll();
+        return view('admin.role.create', compact('permissions'));
     }
 
     /**
@@ -55,9 +59,11 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(
+        StoreRequest $request
+        )
     {
-        $this->repository->create(
+        $role = $this->repository->create(
             [
                 'name' => $request->name,
                 'display_name' => $request->display_name,
@@ -65,8 +71,10 @@ class RoleController extends Controller
             ]
         );
 
-        flash('添加新角色成功！')->success();
+        $this->repository->attachPermissions($role, $request->permission);
 
+        flash('添加新角色成功！')->success();
+        
         return back();
     }
 

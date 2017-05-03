@@ -26,4 +26,16 @@ class RoleEloquentRepository extends BaseEloquentRepository implements RoleRepos
                         }
                     });
     }
+
+
+    /**
+     * Attach permissions
+     * @param Role $role        
+     * @param  array $ids 
+     * @return void              
+     */
+    public function attachPermissions($role, $ids) 
+    {
+        return $role->perms()->sync($ids); // Delete relationship data
+    }
 }

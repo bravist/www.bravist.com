@@ -15,6 +15,7 @@
 
 <div class="row">
     <div class="col-md-12">
+        <form class="form-horizontal" action="{{ route('roles.store') }}" method="POST">
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title">添加角色</h3>
@@ -23,7 +24,6 @@
             <div class="box-body">
                 <div class="col-sm-7">
                     <!-- /.box-header -->
-                    <form class="form-horizontal" action="{{ route('roles.store') }}" method="POST">
                         {{ csrf_field() }}
                         
                             @include('flash::message')
@@ -65,34 +65,12 @@
                                 </div>
                             </div>
                         <!-- /.box-body -->
-                    </form>
                     <!-- /.box-body -->        
                 </div>
 
                 <div class="col-sm-5">
                     <!-- form start -->
-                    <div class="box-header">
-                        <h4 class="box-title">权限列表</h4>
-                    </div>
-                    <div class="box-body">
-                        <form role="form">
-                            <div class="form-group">
-                                <button type="button" class="btn bg-maroon margin">.btn.bg-maroon</button>
-                            </div>
-                            <div class="form-group">
-                                <label>Select</label>
-                                <select class="form-control">
-                                    <option>option 1</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                  </select>
-                            </div>
-
-                        </form>
-                    </div>
-                    </form>
+                    @include('admin.role.dispatch', ['permissions' => $permissions])
                 </div>
             </div>
 
@@ -101,10 +79,11 @@
                 <button type="submit" class="btn btn-primary pull-right">保 存</button>
             </div>
             <!-- /.box-footer -->
-            
+            </form>
         </div>
     </div>
 </div>
-
 @endsection
 @include('admin.modal.flash')
+
+
