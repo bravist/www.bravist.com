@@ -47,4 +47,17 @@ class UpdateRequest extends FormRequest
             'unique' => ':attribute ' . $this->get('name') . '已经被占用',
         ];
     }
+
+    /**
+     * 描述
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'display_name' => '权限昵称',
+            'name' => '权限名',
+            'description' => '权限描述'
+        ];
+    }
 }

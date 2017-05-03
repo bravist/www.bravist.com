@@ -5,7 +5,7 @@
                 <label>设置权限</label>
                 <select name="permission[]" class="form-control select2" multiple="multiple" data-placeholder="选择一个权限" style="width: 100%;">
                     @foreach ($permissions as $permission)
-                        <option value="{{ $permission->id }}"> {{ $permission->name }} - {{ $permission->display_name }}</option>
+                        <option value="{{ $permission->id }}" @if ($role->perms->contains($permission)) selected @endif > {{ $permission->name }} - {{ $permission->display_name }}</option>
                     @endforeach
                 </select>
                 @if ($errors->has('permission'))

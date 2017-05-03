@@ -50,7 +50,8 @@ class RoleController extends Controller
     public function create(PermissionRepositoryContract $permissionRepo)
     {
         $permissions = $permissionRepo->findAll();
-        return view('admin.role.create', compact('permissions'));
+        $role = collect();
+        return view('admin.role.create', compact('permissions', 'role'));
     }
 
     /**
@@ -71,7 +72,7 @@ class RoleController extends Controller
             ]
         );
 
-        $this->repository->attachPermissions($role, $request->permission);
+        $this->repository->syncPermissions($role, $request->permission);
 
         flash('添加新角色成功！')->success();
         
@@ -95,11 +96,11 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, PermissionRepositoryContract $permissionRepo)
     {
         $role = $this->repository->find($id);
-
-        return view('admin.role.edit', compact('role'));
+        $permissions = $permissionRepo->findAll();
+        return view('admin.role.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -117,7 +118,7 @@ class RoleController extends Controller
             abort(404);
         }
 
-        $this->repository->update(
+        $role = $this->repository->update(
             $role,
             [
                 'name' => $request->name,
@@ -125,6 +126,8 @@ class RoleController extends Controller
                 'description' => $request->description,
             ]
         );
+
+        $this->repository->syncPermissions($role, $request->permission);
 
         flash('修改角色名称成功！')->success();
 

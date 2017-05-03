@@ -27,43 +27,52 @@
             <input type="hidden" name="role" value="{{ $role->id }}">
             <div class="box-body">
                 @include('flash::message')
-                <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-                    <label for="name" class="col-sm-2 control-label">角色名</label>
+                
+                <div class="col-md-7">
+                    <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
+                        <label for="name" class="col-sm-2 control-label">角色名</label>
 
-                    <div class="col-sm-10">
-                        <input type="name" name="name" class="form-control" placeholder="角色名" id="name" value="{{ $role->name }}">
-                        @if ($errors->has('name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
-                    @endif
-                    </div>
-                </div>
-                <div class="form-group {{ $errors->has('display_name') ? 'has-error': '' }}">
-                    <label for="display_name" class="col-sm-2 control-label">角色昵称</label>
-
-                    <div class="col-sm-10">
-                        <input type="display_name" name="display_name" class="form-control" id="display_name" placeholder="角色昵称" value="{{ $role->display_name }}">
-                        @if ($errors->has('display_name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('display_name') }}</strong>
-                        </span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
-                    <label for="description" class="col-sm-2 control-label">角色描述</label>
-
-                    <div class="col-sm-10">
-                        <textarea class="form-control" name="description" class="description" rows="3" placeholder="角色描述...">{{ $role->description }}</textarea>
-                        @if ($errors->has('description'))
+                        <div class="col-sm-10">
+                            <input type="name" name="name" class="form-control" placeholder="角色名" id="name" value="{{ $role->name }}">
+                            @if ($errors->has('name'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('description') }}</strong>
+                                <strong>{{ $errors->first('name') }}</strong>
                             </span>
                         @endif
+                        </div>
+                    </div>
+                    <div class="form-group {{ $errors->has('display_name') ? 'has-error': '' }}">
+                        <label for="display_name" class="col-sm-2 control-label">角色昵称</label>
+
+                        <div class="col-sm-10">
+                            <input type="display_name" name="display_name" class="form-control" id="display_name" placeholder="角色昵称" value="{{ $role->display_name }}">
+                            @if ($errors->has('display_name'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('display_name') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+                        <label for="description" class="col-sm-2 control-label">角色描述</label>
+
+                        <div class="col-sm-10">
+                            <textarea class="form-control" name="description" class="description" rows="3" placeholder="角色描述...">{{ $role->description }}</textarea>
+                            @if ($errors->has('description'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('description') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                     </div>
                 </div>
+
+                <div class="col-md-5">
+                    <!-- form start -->
+                    @include('admin.role.dispatch', ['permissions' => $permissions, 'role' => $role])
+                </div>
+
+                
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
