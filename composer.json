@@ -12,7 +12,8 @@
         "laravel/tinker": "~1.0",
         "rinvex/repository": "dev-develop",
         "yzalis/identicon": "^1.1",
-        "zizaco/entrust": "5.2.x-dev"
+        "zizaco/entrust": "5.2.x-dev",
+        "laracasts/presenter": "^0.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -26,15 +26,16 @@
         <ul class="sidebar-menu">
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-edit"></i> 
-                    <span>角色与权限</span>
+                    <i class="fa fa-users"></i> 
+                    <span>用户，角色，权限</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('roles.index') }}"><i class="fa fa-circle-o"></i> 角色权限</a></li>
-                    <li><a href=""><i class="fa fa-circle-o"></i> 权限管理</a></li>
+                    <li><a href="{{ route('managers.index') }}"><i class="fa fa-user"></i> 用户</a></li>
+                    <li><a href="{{ route('roles.index') }}"><i class="fa fa-user-secret"></i> 角色</a></li>
+                    <li><a href="{{ route('permissions.index') }}"><i class="fa fa-fw fa-key"></i> 权限</a></li>
                 </ul>
             </li>
         </ul>

@@ -14,6 +14,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
@@ -31,7 +32,7 @@
     <![endif]-->
 </head>
 
-<body class="hold-transition sidebar-mini skin-red-light">
+<body class="hold-transition sidebar-mini sidebar-collapse skin-red-light">
     
     <div class="wrapper">
 
@@ -80,9 +81,9 @@
 <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/app.min.js') }}"></script>
-<script src="{{ asset('js/demo.js') }}"></script>
 <script type="text/javascript">
     window.Laravel = {'csrfToken': '{{ csrf_token() }}'};
 </script>
 @yield('javascript')
+@yield('script')
 </html>

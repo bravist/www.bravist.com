@@ -2,13 +2,13 @@
 namespace App\Repositories\Eloquents;
 
 use App\Repositories\Eloquents\BaseEloquentRepository;
-use App\Repositories\Contracts\RoleRepositoryContract;
+use App\Repositories\Contracts\PermissionRepositoryContract;
 
-class RoleEloquentRepository extends BaseEloquentRepository implements RoleRepositoryContract
+class PermissionEloquentRepository extends BaseEloquentRepository implements PermissionRepositoryContract
 {
-    protected $repositoryId = 'rinvex.repository.roleId';
+    protected $repositoryId = 'rinvex.repository.permissionId';
 
-    protected $model = 'App\Models\Role';
+    protected $model = 'App\Models\Permission';
 
     /**
      * Keyword search
@@ -25,17 +25,5 @@ class RoleEloquentRepository extends BaseEloquentRepository implements RoleRepos
                                     ->orWhere('description', 'LIKE', '%' . $keyword . '%');
                         }
                     });
-    }
-
-
-    /**
-     * Attach permissions
-     * @param Role $role        
-     * @param  array $ids 
-     * @return void              
-     */
-    public function syncPermissions($role, $ids) 
-    {
-        return $role->perms()->sync($ids); // Delete relationship data
     }
 }

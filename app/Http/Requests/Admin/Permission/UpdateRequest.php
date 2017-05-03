@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Role;
+namespace App\Http\Requests\Admin\Permission;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -25,13 +25,12 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:200', Rule::unique('roles')->where(function ($query) {
+            'name' => ['required', 'max:200', Rule::unique('permissions')->where(function ($query) {
                                                     $query->where('name', $this->get('name'))
-                                                    ->where('id', '!=',$this->get('role'));
+                                                    ->where('id', '!=',$this->get('permission'));
                                                 })],
             'display_name' => 'required|max:200',
             'description' => 'required|max:200',
-            'permission' => 'required'
         ];
     }
 
@@ -56,10 +55,9 @@ class UpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            'permission' => '权限名称',
-            'display_name' => '角色昵称',
-            'name' => '角色名',
-            'description' => '角色描述'
+            'display_name' => '权限昵称',
+            'name' => '权限名',
+            'description' => '权限描述'
         ];
     }
 }

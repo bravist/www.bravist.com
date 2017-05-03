@@ -40,6 +40,7 @@ Route::group(
             function ($route) {
                 $route->get('dashboard', 'DashboardController@index')->name('dashboard');
                 $route->resource('roles', 'RoleController');
+                $route->resource('permissions', 'PermissionController');
             }
         );
 });
