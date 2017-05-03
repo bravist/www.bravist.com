@@ -17,7 +17,7 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">权限列表</h3>
-            <a href="{{ route('permissions.create') }}" class="btn btn-danger pull-right">添加权限</a>
+            <a href="{{ route('permissions.create') }}" class="btn btn-danger pull-right"> <i class="fa fa-fw fa-plus-square"></i> 添加权限</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">

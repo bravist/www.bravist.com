@@ -17,7 +17,7 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">角色列表</h3>
-            <a href="{{ route('roles.create') }}" class="btn btn-danger pull-right">添加角色</a>
+            <a href="{{ route('roles.create') }}" class="btn btn-danger pull-right"> <i class="fa fa-fw fa-plus-square"></i> 添加角色</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
