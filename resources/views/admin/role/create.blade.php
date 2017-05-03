@@ -2,13 +2,13 @@
 @section('content-header')
 <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.css') }}">
 <h1>
-    角色与权限
-    <small>角色管理</small>
+    角色
+    <small>系统后台角色</small>
   </h1>
 <ol class="breadcrumb">
     <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> 控制台</a></li>
-    <li><a href="{{ route('roles.index') }}">角色与权限</a></li>
-    <li class="active">角色管理</li>
+    <li><a href="{{ route('roles.index') }}">角色</a></li>
+    <li class="active">添加</li>
 </ol>
 @endsection
 @section('content')
@@ -22,11 +22,10 @@
             </div>
         
             <div class="box-body">
+                @include('flash::message')
                 <div class="col-sm-7">
                     <!-- /.box-header -->
                         {{ csrf_field() }}
-                        
-                            @include('flash::message')
                             <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
                                 <label for="name" class="col-sm-2 control-label">角色名</label>
 

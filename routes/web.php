@@ -41,6 +41,7 @@ Route::group(
                 $route->get('dashboard', 'DashboardController@index')->name('dashboard');
                 $route->resource('roles', 'RoleController');
                 $route->resource('permissions', 'PermissionController');
+                $route->resource('managers', 'ManagerController');
             }
         );
 });
