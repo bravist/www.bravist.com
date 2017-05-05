@@ -8,6 +8,7 @@ use App\Repositories\Contracts\{
     ManagerRepositoryContract,
     RoleRepositoryContract
 };
+ use App\Http\Requests\Admin\Manager\UpdateRequest;
 
 class ManagerController extends Controller
 {
@@ -86,9 +87,18 @@ class ManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        //
+        $manager = $this->repository->find($id);
+
+        if (!$manager) {
+            abort(404);
+        }
+        $this->repository->syncRole($manager, $request->roles);
+
+        flash('设置用户角色成功！')->success();
+        
+        return back();
     }
 
     /**

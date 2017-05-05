@@ -24,4 +24,15 @@ class ManagerEloquentRepository extends BaseEloquentRepository implements Manage
                         }
                     });
     }
+
+    /**
+     * Attach roles
+     * @param Manager $manager        
+     * @param  array $ids 
+     * @return void              
+     */
+    public function syncRole($manager, $ids) 
+    {
+        return $manager->roles()->sync($ids); // Delete relationship data
+    }
 }

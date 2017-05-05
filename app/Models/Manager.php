@@ -33,4 +33,16 @@ class Manager extends Authenticatable
         //https://github.com/yzalis/Identicon
         return resolve('Bravist\Identicon')->getImageDataUri($this->id . $this->email);
     }
+
+    /**
+     * Many-to-Many relations with the permission model.
+     * Named "perms" for backwards compatibility. Also because "perms" is short and sweet.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
 }

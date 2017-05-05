@@ -7,6 +7,7 @@
                 <th>用户名</th>
                 <th>邮箱</th>
                 <th>注册时间</th>
+                <th>角色</th>
                 <th>编辑</th>
             </tr>
         </thead>
@@ -21,6 +22,7 @@
                         <td>{{ $manager->id }}</td>
                         <td>{{ $manager->name }}</td>
                         <td>{{ $manager->email }}</td>
+                        <td>{{ $manager->created_at->toDateTimeString() }}</td>
                         <td>{{ $manager->created_at->toDateTimeString() }}</td>
                         <td>
                             <div class="btn-group">
@@ -51,6 +53,7 @@
                 <th>用户名</th>
                 <th>邮箱</th>
                 <th>注册时间</th>
+                <th>角色</th>
                 <th>编辑</th>
             </tr>
         </tfoot>
