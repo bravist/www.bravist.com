@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laracasts\Presenter\PresentableTrait;
+use App\Presenter\ManagerPresenter;
 
 class Manager extends Authenticatable
 {
+    use PresentableTrait;
+    protected $presenter = 'ManagerPresenter';
     /**
      * The attributes that are mass assignable.
      *
