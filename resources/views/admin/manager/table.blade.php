@@ -30,15 +30,14 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ route('managers.edit', $manager->id) }}" >修改</a></li>
-
+                                    <li>
+                                        <a data-toggle="modal" onclick="setRole({{ $manager->id }})" >设置角色</a>
+                                    </li>
                                     <li><a href="{{ route('managers.destroy', $manager->id) }}" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">删除</a></li>
                                     <form id="delete-form" action="{{ route('managers.destroy', $manager->id) }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                         {!! method_field('delete') !!}
                                     </form>
-
-                                    
                                 </ul>
                             </div>
                         </td>
@@ -58,3 +57,4 @@
     </table>    
 </div>
 @include('admin.modal.flash')
+@include('admin.modal.role', ['roles' => $roles])

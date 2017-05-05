@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\ManagerRepositoryContract;
+use App\Repositories\Contracts\{
+    ManagerRepositoryContract,
+    RoleRepositoryContract
+};
 
 class ManagerController extends Controller
 {
@@ -19,14 +22,18 @@ class ManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(
+        Request $request,
+        RoleRepositoryContract $roleRepo
+        )
     {
         $managers = $this->repository
                     ->searchByKeyword($request->get('search', null))
                     ->orderBy('id', 'DESC')
                     ->paginate(15)
                     ->appends($request->all());
-        return view('admin.manager.index', compact('managers'));
+        $roles = $roleRepo->findAll();
+        return view('admin.manager.index', compact('managers', 'roles'));
     }
 
     /**

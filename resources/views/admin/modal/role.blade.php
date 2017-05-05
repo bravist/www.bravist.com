@@ -1,39 +1,45 @@
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-    <div class="modal-dialog modal-lg">
+<!-- Modal -->
+<form action="" id="formControl" method="POST">
+{{ csrf_field() }}
+{!! method_field('patch') !!}
+<div class="modal fade" id="set-role" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">修改权限名称</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">设置角色</h4>
             </div>
             <div class="modal-body">
-                <!-- content goes here -->
-                <form>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                            </div>        
-                        </div>
-                        
+                <div class="row">
+                    <div class="col-md-12">
+                        <select name="roles[]" class="form-control select2" multiple="multiple" data-placeholder="选择一个角色" style="width: 100%;">
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}" > {{ $role->name }}</option>
+                                @endforeach
+                            </select>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">保 存</button>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
-<!-- /.modal -->
-
-
+</form>
+@section('script')
+<script src="{{ asset('js/select2.full.min.js') }}"></script>
+    <script type="text/javascript">
+        $('select').select2();
+        function setRole(id) 
+        {
+            var action = "{{ url("/admin/managers") }}" + '/' + id;
+            $("#formControl").attr('action', action);
+            $('#set-role').modal({
+                keyboard: true
+            });
+        }
+    </script>
+@endsection
 
