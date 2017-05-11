@@ -23,7 +23,7 @@
                         <td>{{ $manager->name }}</td>
                         <td>{{ $manager->email }}</td>
                         <td>{{ $manager->created_at->toDateTimeString() }}</td>
-                        <td>{{ $manager->created_at->toDateTimeString() }}</td>
+                        <td>{!! $manager->present()->displayRoles() !!}</td>
                         <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default">操作</button>
