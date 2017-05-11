@@ -2,13 +2,13 @@
 @section('content-header')
 <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.css') }}">
 <h1>
-    角色与权限
-    <small>角色管理</small>
+    权限
+    <small>系统后台权限</small>
   </h1>
 <ol class="breadcrumb">
     <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> 控制台</a></li>
-    <li><a href="{{ route('permissions.index') }}">角色与权限</a></li>
-    <li class="active">权限管理</li>
+    <li><a href="{{ route('permissions.index') }}">权限</a></li>
+    <li class="active">添加</li>
 </ol>
 @endsection
 @section('content')

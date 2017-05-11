@@ -10,16 +10,16 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{ $manager->avatar }}" class="user-image" alt="User Image">
-                    <span class="hidden-xs">{{ $manager->name }}</span>
+                    <img src="@if ($manager) {{ $manager->avatar }} @endif" class="user-image" alt="User Image">
+                    <span class="hidden-xs">@if ($manager) {{ $manager->name }} @endif </span>
                 </a>
                 <ul class="dropdown-menu">
                     <!-- User image -->
                     <li class="user-header">
-                        <img src="{{ $manager->avatar }}" class="img-circle" alt="User Image">
+                        <img src=" @if ($manager) {{ $manager->avatar }} @endif" class="img-circle" alt="User Image">
 
                         <p>
-                            {{ $manager->email }}
+                            @if ($manager) {{ $manager->email }} @endif
                         </p>
                     </li>
                     <!-- Menu Footer-->

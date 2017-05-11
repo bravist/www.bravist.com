@@ -2,12 +2,12 @@
 @section('content-header')
 <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.css') }}">
 <h1>
-    角色
-    <small>系统后台角色</small>
+    后台管理员
+    <small>系统后台用户</small>
   </h1>
 <ol class="breadcrumb">
     <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> 控制台</a></li>
-    <li><a href="{{ route('roles.index') }}">角色</a></li>
+    <li><a href="{{ route('roles.index') }}">管理员</a></li>
     <li class="active">列表</li>
 </ol>
 @endsection
@@ -16,7 +16,7 @@
 <div class="col-xs-12">
     <div class="box">
         <div class="box-header with-border">
-            <a href="{{ route('roles.create') }}" class="btn btn-danger pull-right"> <i class="fa fa-fw fa-plus-square"></i> 添加角色</a>
+            <a href="{{ route('roles.create') }}" class="btn btn-danger pull-right"> <i class="fa fa-fw fa-plus-square"></i> 添加管理员</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -26,11 +26,11 @@
                 </div>
 
                 <div class="row">
-                    @include('admin.role.table', ['roles' => $roles])
+                    @include('admin.manager.table', ['managers' => $managers])
                 </div>
             </div>
             <div class="row">
-                @include('admin.grid.paginator', ['page' => $roles])
+                @include('admin.grid.paginator', ['page' => $managers])
             </div>
             
         </div>

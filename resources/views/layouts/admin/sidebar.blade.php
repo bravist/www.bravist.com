@@ -4,10 +4,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ $manager->avatar }}" class="img-circle" alt="User Image">
+                <img src="@if ($manager) {{ $manager->avatar }} @endif" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>{{ $manager->name }}</p>
+                <p>@if ($manager) {{ $manager->name }} @endif</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>

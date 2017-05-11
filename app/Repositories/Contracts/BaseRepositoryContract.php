@@ -7,5 +7,5 @@ use Rinvex\Repository\Contracts\RepositoryContract;
 
 interface BaseRepositoryContract extends RepositoryContract, CacheableContract
 {
-    
+	public function searchByKeyword($keyword = '');
 }
