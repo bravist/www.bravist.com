@@ -7,7 +7,7 @@ use App\Repositories\Contracts\BaseRepositoryContract;
 
 class BaseEloquentRepository extends EloquentRepository implements BaseRepositoryContract
 {
-    public function searchByKeyword($keyword = '') {
-    	
+    public function searchByKeyword($keyword = '')
+    {
     }
 }

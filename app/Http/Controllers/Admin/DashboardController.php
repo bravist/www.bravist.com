@@ -9,11 +9,11 @@ class DashboardController extends Controller
 {
     /**
      * Index action
-     * 
+     *
      * @return void
      */
     public function index()
     {
-    	return view('admin.dashboard');
+        return view('admin.dashboard');
     }
 }

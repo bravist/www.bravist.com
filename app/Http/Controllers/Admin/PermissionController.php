@@ -5,19 +5,16 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\PermissionRepositoryContract;
-use App\Http\Requests\Admin\Permission\{
-    StoreRequest,
-    UpdateRequest
-};
+use App\Http\Requests\Admin\Permission\StoreRequest;
+use App\Http\Requests\Admin\Permission\UpdateRequest;
 
 class PermissionController extends Controller
 {
-
     protected $repository;
 
     /**
      * Contruct
-     * 
+     *
      * @param RoleRepositoryContract $repository
      */
     public function __construct(PermissionRepositoryContract $repository)

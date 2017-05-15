@@ -12,8 +12,8 @@ class RoleEloquentRepository extends BaseEloquentRepository implements RoleRepos
 
     /**
      * Keyword search
-     * @param string $keyword 
-     * @return Repository          
+     * @param string $keyword
+     * @return Repository
      */
     public function searchByKeyword($keyword = '')
     {
@@ -30,11 +30,11 @@ class RoleEloquentRepository extends BaseEloquentRepository implements RoleRepos
 
     /**
      * Attach permissions
-     * @param Role $role        
-     * @param  array $ids 
-     * @return void              
+     * @param Role $role
+     * @param  array $ids
+     * @return void
      */
-    public function syncPermissions($role, $ids) 
+    public function syncPermissions($role, $ids)
     {
         return $role->perms()->sync($ids); // Delete relationship data
     }

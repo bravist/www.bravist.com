@@ -12,8 +12,8 @@ class ManagerEloquentRepository extends BaseEloquentRepository implements Manage
 
     /**
      * Keyword search
-     * @param string $keyword 
-     * @return Repository          
+     * @param string $keyword
+     * @return Repository
      */
     public function searchByKeyword($keyword = '')
     {
@@ -27,11 +27,11 @@ class ManagerEloquentRepository extends BaseEloquentRepository implements Manage
 
     /**
      * Attach roles
-     * @param Manager $manager        
-     * @param  array $ids 
-     * @return void              
+     * @param Manager $manager
+     * @param  array $ids
+     * @return void
      */
-    public function syncRole($manager, $ids) 
+    public function syncRole($manager, $ids)
     {
         return $manager->roles()->sync($ids); // Delete relationship data
     }

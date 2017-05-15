@@ -21,12 +21,11 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(
     [
-        'prefix' => 'admin', 
-        'namespace' => 'Admin', 
+        'prefix' => 'admin',
+        'namespace' => 'Admin',
         'middleware' => 'web'
-    ], 
+    ],
     function ($route) {
-
         $route->get('register', 'Auth\RegisterController@index')->name('register.admin');
         $route->post('register', 'Auth\RegisterController@store');
         $route->get('login', 'Auth\LoginController@index')->name('login.admin');
@@ -44,4 +43,4 @@ Route::group(
                 $route->resource('managers', 'ManagerController');
             }
         );
-});
+    });

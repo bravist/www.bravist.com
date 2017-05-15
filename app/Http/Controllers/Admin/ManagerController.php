@@ -4,17 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\{
-    ManagerRepositoryContract,
-    RoleRepositoryContract
-};
- use App\Http\Requests\Admin\Manager\UpdateRequest;
+use App\Repositories\Contracts\ManagerRepositoryContract;
+use App\Repositories\Contracts\RoleRepositoryContract;
+use App\Http\Requests\Admin\Manager\UpdateRequest;
 
 class ManagerController extends Controller
 {
     protected $repository;
 
-    public function __construct(ManagerRepositoryContract $repository) 
+    public function __construct(ManagerRepositoryContract $repository)
     {
         $this->repository = $repository;
     }
@@ -26,8 +24,7 @@ class ManagerController extends Controller
     public function index(
         Request $request,
         RoleRepositoryContract $roleRepo
-        )
-    {
+        ) {
         $managers = $this->repository
                     ->searchByKeyword($request->get('search', null))
                     ->orderBy('id', 'DESC')

@@ -32,7 +32,7 @@ class StoreRegisterRequest extends FormRequest
 
     /**
      * Custom the field message
-     * 
+     *
      * @return array
      */
     public function messages()
