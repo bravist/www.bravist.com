@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\RoleRepositoryContract;
-use App\Repositories\Contracts\PermissionRepositoryContract;
 use App\Http\Requests\Admin\Role\StoreRequest;
 use App\Http\Requests\Admin\Role\UpdateRequest;
+use App\Repositories\Contracts\PermissionRepositoryContract;
+use App\Repositories\Contracts\RoleRepositoryContract;
+use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
     protected $repository;
 
     /**
-     * Contruct
+     * Contruct.
      *
      * @param RoleRepositoryContract $repository
      */
@@ -35,6 +35,7 @@ class RoleController extends Controller
                     ->orderBy('id', 'DESC')
                     ->paginate(15)
                     ->appends($request->all());
+
         return view('admin.role.index', compact('roles'));
     }
 
@@ -47,13 +48,15 @@ class RoleController extends Controller
     {
         $permissions = $permissionRepo->findAll();
         $role = collect();
+
         return view('admin.role.create', compact('permissions', 'role'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(
@@ -61,23 +64,24 @@ class RoleController extends Controller
         ) {
         $role = $this->repository->create(
             [
-                'name' => $request->name,
+                'name'         => $request->name,
                 'display_name' => $request->display_name,
-                'description' => $request->description,
+                'description'  => $request->description,
             ]
         );
 
         $this->repository->syncPermissions($role, $request->permission);
 
         flash('添加新角色成功！')->success();
-        
+
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -88,21 +92,24 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id, PermissionRepositoryContract $permissionRepo)
     {
         $role = $this->repository->find($id);
         $permissions = $permissionRepo->findAll();
+
         return view('admin.role.edit', compact('role', 'permissions'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRequest $request, $id)
@@ -116,9 +123,9 @@ class RoleController extends Controller
         $role = $this->repository->update(
             $role,
             [
-                'name' => $request->name,
+                'name'         => $request->name,
                 'display_name' => $request->display_name,
-                'description' => $request->description,
+                'description'  => $request->description,
             ]
         );
 
@@ -132,7 +139,8 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

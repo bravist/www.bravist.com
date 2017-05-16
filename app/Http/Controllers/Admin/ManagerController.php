@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Manager\UpdateRequest;
 use App\Repositories\Contracts\ManagerRepositoryContract;
 use App\Repositories\Contracts\RoleRepositoryContract;
-use App\Http\Requests\Admin\Manager\UpdateRequest;
+use Illuminate\Http\Request;
 
 class ManagerController extends Controller
 {
@@ -16,6 +16,7 @@ class ManagerController extends Controller
     {
         $this->repository = $repository;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -31,6 +32,7 @@ class ManagerController extends Controller
                     ->paginate(15)
                     ->appends($request->all());
         $roles = $roleRepo->findAll();
+
         return view('admin.manager.index', compact('managers', 'roles'));
     }
 
@@ -47,7 +49,8 @@ class ManagerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -58,7 +61,8 @@ class ManagerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,7 +73,8 @@ class ManagerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,8 +85,9 @@ class ManagerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRequest $request, $id)
@@ -94,14 +100,15 @@ class ManagerController extends Controller
         $this->repository->syncRole($manager, $request->roles);
 
         flash('设置用户角色成功！')->success();
-        
+
         return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 namespace App\Repositories\Eloquents;
 
-use Rinvex\Repository\Repositories\EloquentRepository;
 use App\Repositories\Contracts\BaseRepositoryContract;
+use Rinvex\Repository\Repositories\EloquentRepository;
 
 class BaseEloquentRepository extends EloquentRepository implements BaseRepositoryContract
 {

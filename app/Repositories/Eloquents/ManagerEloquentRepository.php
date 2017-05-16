@@ -1,7 +1,7 @@
-<?php 
+<?php
+
 namespace App\Repositories\Eloquents;
 
-use App\Repositories\Eloquents\BaseEloquentRepository;
 use App\Repositories\Contracts\ManagerRepositoryContract;
 
 class ManagerEloquentRepository extends BaseEloquentRepository implements ManagerRepositoryContract
@@ -11,8 +11,10 @@ class ManagerEloquentRepository extends BaseEloquentRepository implements Manage
     protected $model = 'App\Models\Manager';
 
     /**
-     * Keyword search
+     * Keyword search.
+     *
      * @param string $keyword
+     *
      * @return Repository
      */
     public function searchByKeyword($keyword = '')
@@ -20,15 +22,17 @@ class ManagerEloquentRepository extends BaseEloquentRepository implements Manage
         return $this->createModel()
                     ->orWhere(function ($builder) use ($keyword) {
                         if ($keyword) {
-                            $builder->orWhere('name', 'LIKE', '%' . $keyword . '%');
+                            $builder->orWhere('name', 'LIKE', '%'.$keyword.'%');
                         }
                     });
     }
 
     /**
-     * Attach roles
+     * Attach roles.
+     *
      * @param Manager $manager
-     * @param  array $ids
+     * @param array   $ids
+     *
      * @return void
      */
     public function syncRole($manager, $ids)

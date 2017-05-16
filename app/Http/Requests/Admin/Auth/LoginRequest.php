@@ -24,13 +24,13 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|max:255',
+            'email'    => 'required|email|max:255',
             'password' => 'required|min:6',
         ];
     }
 
     /**
-     * Custom the field message
+     * Custom the field message.
      *
      * @return array
      */
@@ -38,9 +38,9 @@ class LoginRequest extends FormRequest
     {
         return [
             'required' => ' :attribute 不能为空',
-            'max' => ':attribute 最大值不能为 :max',
-            'email' => ':attribute 邮箱格式不正确',
-            'min' => ':attribute 最小值不能小于 :min',
+            'max'      => ':attribute 最大值不能为 :max',
+            'email'    => ':attribute 邮箱格式不正确',
+            'min'      => ':attribute 最小值不能小于 :min',
         ];
     }
 }

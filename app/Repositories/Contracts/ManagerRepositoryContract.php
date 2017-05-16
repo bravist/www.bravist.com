@@ -1,7 +1,6 @@
-<?php 
-namespace App\Repositories\Contracts;
+<?php
 
-use App\Repositories\Contracts\BaseRepositoryContract;
+namespace App\Repositories\Contracts;
 
 interface ManagerRepositoryContract extends BaseRepositoryContract
 {
