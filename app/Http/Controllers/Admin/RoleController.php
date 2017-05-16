@@ -4,14 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\{
-    RoleRepositoryContract,
-    PermissionRepositoryContract
-};
-use App\Http\Requests\Admin\Role\{
-    StoreRequest,
-    UpdateRequest
-};
+use App\Repositories\Contracts\RoleRepositoryContract;
+use App\Repositories\Contracts\PermissionRepositoryContract;
+use App\Http\Requests\Admin\Role\StoreRequest;
+use App\Http\Requests\Admin\Role\UpdateRequest;
 
 class RoleController extends Controller
 {
@@ -19,7 +15,7 @@ class RoleController extends Controller
 
     /**
      * Contruct
-     * 
+     *
      * @param RoleRepositoryContract $repository
      */
     public function __construct(RoleRepositoryContract $repository)
@@ -62,8 +58,7 @@ class RoleController extends Controller
      */
     public function store(
         StoreRequest $request
-        )
-    {
+        ) {
         $role = $this->repository->create(
             [
                 'name' => $request->name,

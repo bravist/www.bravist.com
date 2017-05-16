@@ -26,9 +26,9 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:200', Rule::unique('roles')->where(function ($query) {
-                                                    $query->where('name', $this->get('name'))
-                                                    ->where('id', '!=',$this->get('role'));
-                                                })],
+                $query->where('name', $this->get('name'))
+                                                    ->where('id', '!=', $this->get('role'));
+            })],
             'display_name' => 'required|max:200',
             'description' => 'required|max:200',
             'permission' => 'required'
@@ -37,7 +37,7 @@ class UpdateRequest extends FormRequest
 
     /**
      * Custom the field message
-     * 
+     *
      * @return array
      */
     public function messages()

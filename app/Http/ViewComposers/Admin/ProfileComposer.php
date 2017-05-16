@@ -11,7 +11,7 @@ class ProfileComposer
 
     /**
      * Construct
-     * 
+     *
      * @param AuthManager $auth
      */
     public function __construct(AuthManager $auth)
@@ -38,5 +38,4 @@ class ProfileComposer
     {
         $view->with('manager', $this->getManager());
     }
-
 }

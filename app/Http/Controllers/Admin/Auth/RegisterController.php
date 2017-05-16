@@ -68,7 +68,7 @@ class RegisterController extends Controller
 
     /**
      * Reset guard for mangager
-     * 
+     *
      * @return Guard
      */
     protected function guard()

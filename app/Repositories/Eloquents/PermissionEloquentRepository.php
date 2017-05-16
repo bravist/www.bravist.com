@@ -12,8 +12,8 @@ class PermissionEloquentRepository extends BaseEloquentRepository implements Per
 
     /**
      * Keyword search
-     * @param string $keyword 
-     * @return Repository          
+     * @param string $keyword
+     * @return Repository
      */
     public function searchByKeyword($keyword = '')
     {

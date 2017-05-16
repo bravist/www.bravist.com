@@ -47,5 +47,4 @@ class Manager extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
-
 }

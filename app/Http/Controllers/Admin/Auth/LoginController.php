@@ -127,7 +127,7 @@ class LoginController extends Controller
      * @param  mixed  $user
      * @return mixed
      */
-    protected function authenticated( $request, $user)
+    protected function authenticated($request, $user)
     {
         //
     }
