@@ -3,11 +3,10 @@
 namespace App\Providers;
 
 use App\Services\Auth\ManagerGuard;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use Laravel\Passport\Passport;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
 {

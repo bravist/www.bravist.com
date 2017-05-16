@@ -1,7 +1,7 @@
-<?php 
+<?php
+
 namespace App\Repositories\Eloquents;
 
-use App\Repositories\Eloquents\BaseEloquentRepository;
 use App\Repositories\Contracts\RoleRepositoryContract;
 
 class RoleEloquentRepository extends BaseEloquentRepository implements RoleRepositoryContract
@@ -11,8 +11,10 @@ class RoleEloquentRepository extends BaseEloquentRepository implements RoleRepos
     protected $model = 'App\Models\Role';
 
     /**
-     * Keyword search
+     * Keyword search.
+     *
      * @param string $keyword
+     *
      * @return Repository
      */
     public function searchByKeyword($keyword = '')
@@ -20,18 +22,19 @@ class RoleEloquentRepository extends BaseEloquentRepository implements RoleRepos
         return $this->createModel()
                     ->orWhere(function ($builder) use ($keyword) {
                         if ($keyword) {
-                            $builder->orWhere('name', 'LIKE', '%' . $keyword . '%')
-                                    ->orWhere('display_name', 'LIKE', '%' . $keyword . '%')
-                                    ->orWhere('description', 'LIKE', '%' . $keyword . '%');
+                            $builder->orWhere('name', 'LIKE', '%'.$keyword.'%')
+                                    ->orWhere('display_name', 'LIKE', '%'.$keyword.'%')
+                                    ->orWhere('description', 'LIKE', '%'.$keyword.'%');
                         }
                     });
     }
 
-
     /**
-     * Attach permissions
-     * @param Role $role
-     * @param  array $ids
+     * Attach permissions.
+     *
+     * @param Role  $role
+     * @param array $ids
+     *
      * @return void
      */
     public function syncPermissions($role, $ids)

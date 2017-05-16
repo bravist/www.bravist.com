@@ -24,31 +24,31 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'roles' => 'required'
+            'roles' => 'required',
         ];
     }
 
-
     /**
-     * Custom the field message
+     * Custom the field message.
      *
      * @return array
      */
     public function messages()
     {
         return [
-            'required' => ' :attribute 不能为空'
+            'required' => ' :attribute 不能为空',
         ];
     }
 
     /**
-     * 描述
+     * 描述.
+     *
      * @return array
      */
     public function attributes()
     {
         return [
-            'roles' => '权限'
+            'roles' => '权限',
         ];
     }
 }

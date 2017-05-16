@@ -2,9 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-use App\Models\Manager;
+use Illuminate\Support\ServiceProvider;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -19,7 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(
             [
                 'layouts.admin.sidebar',
-                'layouts.admin.nav'
+                'layouts.admin.nav',
             ],
             'App\Http\ViewComposers\Admin\ProfileComposer'
         );

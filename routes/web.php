@@ -21,9 +21,9 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(
     [
-        'prefix' => 'admin',
-        'namespace' => 'Admin',
-        'middleware' => 'web'
+        'prefix'     => 'admin',
+        'namespace'  => 'Admin',
+        'middleware' => 'web',
     ],
     function ($route) {
         $route->get('register', 'Auth\RegisterController@index')->name('register.admin');
@@ -34,7 +34,7 @@ Route::group(
 
         Route::group(
             [
-                'middleware' => 'auth.admin'
+                'middleware' => 'auth.admin',
             ],
             function ($route) {
                 $route->get('dashboard', 'DashboardController@index')->name('dashboard');

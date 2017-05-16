@@ -1,7 +1,7 @@
-<?php 
+<?php
+
 namespace App\Repositories\Eloquents;
 
-use App\Repositories\Eloquents\BaseEloquentRepository;
 use App\Repositories\Contracts\PermissionRepositoryContract;
 
 class PermissionEloquentRepository extends BaseEloquentRepository implements PermissionRepositoryContract
@@ -11,8 +11,10 @@ class PermissionEloquentRepository extends BaseEloquentRepository implements Per
     protected $model = 'App\Models\Permission';
 
     /**
-     * Keyword search
+     * Keyword search.
+     *
      * @param string $keyword
+     *
      * @return Repository
      */
     public function searchByKeyword($keyword = '')
@@ -20,9 +22,9 @@ class PermissionEloquentRepository extends BaseEloquentRepository implements Per
         return $this->createModel()
                     ->orWhere(function ($builder) use ($keyword) {
                         if ($keyword) {
-                            $builder->orWhere('name', 'LIKE', '%' . $keyword . '%')
-                                    ->orWhere('display_name', 'LIKE', '%' . $keyword . '%')
-                                    ->orWhere('description', 'LIKE', '%' . $keyword . '%');
+                            $builder->orWhere('name', 'LIKE', '%'.$keyword.'%')
+                                    ->orWhere('display_name', 'LIKE', '%'.$keyword.'%')
+                                    ->orWhere('description', 'LIKE', '%'.$keyword.'%');
                         }
                     });
     }

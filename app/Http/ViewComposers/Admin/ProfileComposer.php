@@ -2,15 +2,15 @@
 
 namespace App\Http\ViewComposers\Admin;
 
-use Illuminate\View\View;
 use Illuminate\Auth\AuthManager;
+use Illuminate\View\View;
 
 class ProfileComposer
 {
     protected $auth;
 
     /**
-     * Construct
+     * Construct.
      *
      * @param AuthManager $auth
      */
@@ -20,7 +20,8 @@ class ProfileComposer
     }
 
     /**
-     * Get login manager
+     * Get login manager.
+     *
      * @return Manager
      */
     public function getManager()
@@ -31,7 +32,8 @@ class ProfileComposer
     /**
      * Bind data to the view.
      *
-     * @param  View  $view
+     * @param View $view
+     *
      * @return void
      */
     public function compose(View $view)

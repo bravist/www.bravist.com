@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Auth\StoreRegisterRequest;
 use App\Repositories\Contracts\ManagerRepositoryContract;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RedirectsUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -50,14 +50,15 @@ class RegisterController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRegisterRequest $request)
     {
         $userEntity = $this->repository->create([
-            'name' => $request->get('username'),
-            'email' => $request->get('email'),
+            'name'     => $request->get('username'),
+            'email'    => $request->get('email'),
             'password' => bcrypt($request->get('password')),
         ]);
         $this->guard()->login($userEntity);
@@ -67,7 +68,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Reset guard for mangager
+     * Reset guard for mangager.
      *
      * @return Guard
      */
@@ -79,8 +80,9 @@ class RegisterController extends Controller
     /**
      * The user has been registered.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
+     * @param \Illuminate\Http\Request $request
+     * @param mixed                    $user
+     *
      * @return mixed
      */
     protected function registered(Request $request, $user)

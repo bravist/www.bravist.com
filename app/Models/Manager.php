@@ -28,13 +28,14 @@ class Manager extends Authenticatable
     ];
 
     /**
-     * Get avatar
+     * Get avatar.
+     *
      * @return string
      */
     public function getAvatarAttribute()
     {
         //https://github.com/yzalis/Identicon
-        return resolve('Bravist\Identicon')->getImageDataUri($this->id . $this->email);
+        return resolve('Bravist\Identicon')->getImageDataUri($this->id.$this->email);
     }
 
     /**
