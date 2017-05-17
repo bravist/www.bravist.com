@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -72,12 +73,12 @@ class RegisterController extends Controller
     }
 
     /**
-     * Reset guard for mangager
+     * Reset guard for users
      *
      * @return Guard
      */
-    // protected function guard()
-    // {
-    //     return Auth::guard('manager');
-    // }
+    protected function guard()
+    {
+        return Auth::guard('web');
+    }
 }
